@@ -11,5 +11,6 @@ public class sesion_1 {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
         menu(entrada);
+        Persona Persona = new Persona();
     }
 }
