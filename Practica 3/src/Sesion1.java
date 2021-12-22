@@ -30,7 +30,7 @@ public class Sesion1 {
         double altura = persona.getAltura(); //metros
         double peso = persona.getPeso(); //kilogramos
         double imc = persona.getImc();
-        String estado = persona.getEstado();
+        String estado = persona.calcularIMC();
 
         System.out.println("Persona { nombre: " + nombre + " genero: " + genero + " edad: " +
                 edad + " altura: " + altura + " peso: " + peso + " imc: " + imc + " estado: " +

@@ -41,10 +41,10 @@ public class Persona {
     }
 
     public double getImc() {
-        this.imc = peso/altura*altura;
+        this.imc = this.peso/(this.altura*this.altura);
         return imc;
     }
-    public String getEstado() {
+    public String calcularIMC() {
         double IMC = getImc();
         if (IMC < 18.5){
             this.estado = "Peso inferior al normal";
@@ -60,5 +60,19 @@ public class Persona {
         }
         return estado;
     }
-    public String
+
+    public String toString(){
+        String nombre = this.getNombre();
+        char genero = this.getGenero(); //H y M
+        int edad = this.getEdad();
+        double altura = this.getAltura(); //metros
+        double peso = this.getPeso(); //kilogramos
+        double imc = this.getImc();
+        String estado = this.calcularIMC();
+
+        String texto = "Persona { nombre: " + nombre + " genero: " + genero + " edad: " +
+                edad + " altura: " + altura + " peso: " + peso + " imc: " + imc + " estado: " +
+                estado + "}";
+        return texto;
+    }
 }
