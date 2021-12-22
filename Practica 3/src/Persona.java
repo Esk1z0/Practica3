@@ -1,11 +1,11 @@
 public class Persona {
-    String nombre;
-    char genero; //H y M
-    int edad;
-    double altura; //metros
-    double peso; //kilogramos
-    double imc;
-    String estado;
+    private String nombre;
+    private char genero; //H y M
+    private int edad;
+    private double altura; //metros
+    private double peso; //kilogramos
+    private  double imc;
+    private String estado;
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -36,6 +36,10 @@ public class Persona {
     public double getAltura() {
         return altura;
     }
+    public double getPeso() {
+        return peso;
+    }
+
     public double getImc() {
         this.imc = peso/altura*altura;
         return imc;

@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class sesion_1 {
     public static int menu(Scanner entrada){
         int resultado = 0;
-        System.out.print("Menú Práctica 3:\n\b1. Insetar persona.\n\b2. Listar Personas\n\b0. Finalizar personas\nIntroduzca una opción del menú");
+        System.out.print("Menú Práctica 3:\n\b1. Insetar persona.\n\b2. Listar Personas\n\b0. Finalizar personas\nIntroduzca una opción del menú\n");
         resultado = entrada.nextInt();
         return resultado;
     }
@@ -23,12 +23,32 @@ public class sesion_1 {
         return Persona1;
     }
 
+    public static void mostrarPersona (Persona persona){
+        String nombre = persona.getNombre();
+        char genero = persona.getGenero(); //H y M
+        int edad = persona.getEdad();
+        double altura = persona.getAltura(); //metros
+        double peso = persona.getPeso(); //kilogramos
+        double imc = persona.getImc();
+        String estado = persona.getEstado();
+
+        System.out.println("Persona { nombre: " + nombre + " genero: " + genero + " edad: " +
+                edad + " altura: " + altura + " peso: " + peso + " imc: " + imc + " estado: " +
+                estado + "}");
+    }
+
     public static void main(String[] args) {
-        int decision;
+        int decision = 0;
+        Persona Persona1 = null;
         Scanner entrada = new Scanner(System.in);
-        decision = menu(entrada);
-        if (decision == 1){
-            crearPersona(entrada);
+        while (decision < 5) {
+            decision = menu(entrada);
+            if (decision == 1) {
+                Persona1 = crearPersona(entrada);
+            }
+            else if (decision == 2) {
+                mostrarPersona(Persona1);
+            }
         }
     }
 }
