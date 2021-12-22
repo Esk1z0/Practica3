@@ -60,4 +60,5 @@ public class Persona {
         }
         return estado;
     }
+    public String
 }
