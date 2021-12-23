@@ -17,6 +17,24 @@ public class ScrabCode {
             System.out.println("Cagada");
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public static void cosa(){
         PrintWriter out = null;
         try {

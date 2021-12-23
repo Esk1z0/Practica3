@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Sesion3 {
@@ -31,7 +33,7 @@ public class Sesion3 {
                 eliminarPersona(entrada, lista);
             }
             else if (decision == 5){
-
+                escribirPersonasFicheroTexto(lista);
             }
             else if (decision == 6){
 
@@ -71,4 +73,30 @@ public class Sesion3 {
         decision = entrada.nextInt();
         return decision;
     }
-}
+
+    public static void escribirPersonasFicheroTexto(ListaPersonas lista) {
+        Persona humano = null;
+        try {
+            FileWriter out = new FileWriter("Practica 3\\src\\fichero.csv");
+            for (int i=1; i<11; ++i){
+                if (lista.getPersona(i) != null){
+                    humano = lista.getPersona(i);
+                    out.write(humano.getNombre());
+                    out.write(";");
+                    out.write(humano.getGenero());
+                    out.write(";");
+                    out.write(Integer.toString(humano.getEdad()));
+                    out.write(";");
+                    out.write(Double.toString(humano.getAltura()));
+                    out.write(";");
+                    out.write(Double.toString(humano.getPeso()));
+                    out.write("\n");
+                }
+            }
+            out.close();
+        }
+        catch(IOException ex){
+            System.out.println("Oops, ha habido un problema, vuelva otro día");
+        }
+    }
+    }
