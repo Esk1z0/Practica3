@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
@@ -36,10 +38,10 @@ public class Sesion3 {
                 escribirPersonasFicheroTexto(lista);
             }
             else if (decision == 6){
-
+                lista = leerPersonasFicheroCsv(lista);
             }
             else if (decision == 0){
-
+                System.out.println("Vuelva pronto");
             }
         }
     }
@@ -99,4 +101,34 @@ public class Sesion3 {
             System.out.println("Oops, ha habido un problema, vuelva otro día");
         }
     }
+
+    public static ListaPersonas leerPersonasFicheroCsv(ListaPersonas lista){
+        lista = new ListaPersonas();
+        int contador = 1;
+        int posicion = 0;
+        String texto = "";
+        String[] cosas = new String[5];
+        Persona humano = new Persona();
+
+        try{
+            BufferedReader in = new BufferedReader(new FileReader("Practica 3\\src\\fichero.csv"));
+            while((texto = in.readLine()) != null){
+                cosas = texto.split(";");
+                lista.createNewPersona(contador);
+                humano.setNombre(cosas[0]);
+                humano.setGenero(cosas[1].charAt(0));
+                humano.setEdad(Integer.parseInt(cosas[2]));
+                humano.setAltura(Double.parseDouble(cosas[3]));
+                humano.setPeso(Double.parseDouble(cosas[4]));
+                lista.setNewPersona(humano, contador);
+                humano = new Persona();
+                contador = contador + 1;
+            }
+        }
+        catch(IOException ex){
+            System.out.println("Pos se ha jodio");
+        }
+        return lista;
     }
+}
+
