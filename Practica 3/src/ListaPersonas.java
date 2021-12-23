@@ -25,4 +25,18 @@ public class ListaPersonas {
         Persona persona = this.lista[posicion-1];
         return persona;
     }
+
+    public int findPersona(String nombre){
+        int posicion = 0;
+        Persona humano = null;
+        for (int i=0; i<10; ++i){
+            if(this.getPersona(i) != null){
+                humano = getPersona(i);
+                if(humano.getNombre() == nombre){
+                    posicion = i + 1;
+                }
+            }
+        }
+        return posicion;
+    }
 }
